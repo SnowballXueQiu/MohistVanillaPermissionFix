@@ -1,0 +1,118 @@
+name: VanillaCommandBridge
+version: ${version}
+main: cc.vastsea.vanillacmdbridge.VanillaCommandBridge
+api-version: 1.20
+author: Snowball_233
+description: Bridge vanilla commands with permission system for non-OP players
+website: https://github.com/Snowball-233/VanillaCommandBridge
+
+commands:
+  gamemode:
+    description: Change player gamemode
+    usage: /gamemode <mode> [player]
+    permission: minecraft.command.gamemode
+    aliases: [gm]
+  tp:
+    description: Teleport to player or coordinates
+    usage: /tp <target> or /tp <x> <y> <z>
+    permission: minecraft.command.teleport
+  give:
+    description: Give items to player
+    usage: /give <player> <item> [amount]
+    permission: minecraft.command.give
+  time:
+    description: Set or add time
+    usage: /time <set|add|query> [value]
+    permission: minecraft.command.time
+  weather:
+    description: Change weather
+    usage: /weather <clear|rain|thunder>
+    permission: minecraft.command.weather
+  effect:
+    description: Give or clear effects
+    usage: /effect <give|clear> <player> [effect] [duration] [amplifier]
+    permission: minecraft.command.effect
+  clear:
+    description: Clear items from player inventory
+    usage: /clear [player] [item] [amount]
+    permission: minecraft.command.clear
+  experience:
+    description: Give or take experience
+    usage: /experience <add|set|query> <player> <amount>
+    permission: minecraft.command.experience
+    aliases: [xp]
+  fill:
+    description: Fill a region with blocks
+    usage: /fill <from> <to> <block>
+    permission: minecraft.command.fill
+  kill:
+    description: Kill entities
+    usage: /kill [player]
+    permission: minecraft.command.kill
+  setblock:
+    description: Set a block at coordinates
+    usage: /setblock <x> <y> <z> <block>
+    permission: minecraft.command.setblock
+  summon:
+    description: Summon entities
+    usage: /summon <entity> [x] [y] [z]
+    permission: minecraft.command.summon
+
+permissions:
+  minecraft.command.*:
+    description: Access to all vanilla commands
+    children:
+      minecraft.command.gamemode: true
+      minecraft.command.teleport: true
+      minecraft.command.teleport.other: true
+      minecraft.command.give: true
+      minecraft.command.time: true
+      minecraft.command.weather: true
+      minecraft.command.effect: true
+      minecraft.command.clear: true
+      minecraft.command.experience: true
+      minecraft.command.fill: true
+      minecraft.command.kill: true
+      minecraft.command.setblock: true
+      minecraft.command.summon: true
+  minecraft.command.gamemode:
+    description: Access to gamemode command
+    default: false
+  minecraft.command.teleport:
+    description: Access to teleport command
+    default: false
+  minecraft.command.teleport.other:
+    description: Access to teleport other players
+    default: false
+  minecraft.command.give:
+    description: Access to give command
+    default: false
+  minecraft.command.time:
+    description: Access to time command
+    default: false
+  minecraft.command.weather:
+    description: Access to weather command
+    default: false
+  minecraft.command.effect:
+    description: Access to effect command
+    default: false
+  minecraft.command.clear:
+    description: Access to clear command
+    default: false
+  minecraft.command.experience:
+    description: Access to experience command
+    default: false
+  minecraft.command.fill:
+    description: Access to fill command
+    default: false
+  minecraft.command.kill:
+    description: Access to kill command
+    default: false
+  minecraft.command.setblock:
+    description: Access to setblock command
+    default: false
+  minecraft.command.summon:
+    description: Access to summon command
+    default: false
+
+soft-depend: [LuckPerms]
